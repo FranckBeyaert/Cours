@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+        <h1>Votre Réservation d'hotel</h1>
+        * champ obligatoire </header><br/>
+    <form action="" method="get">
+        <div>
+            <label for="lname">Votre nom *:<br/>
+                <input type="text" name="fname" placeholder="Laporte" required>
+            </label>
+        </div>
+        <div>
+            <label for="fname">Votre prénom *:<br/>
+                <input type="text" name="lname" placeholder="Bernard" required>
+            </label>
+        </div>
+        <div>
+            <label for="tel">Votre numéro de Téléphone *:<br/>
+                <input type="tel" name="tel" placeholder="0666994450" required>
+            </label>
+        </div>
+        <div>
+            <label for="email">Votre adresse e-mail *:<br/>
+            <input type="email" name="email" placeholder="benard.laporte@gmail.com" required>
+            </label>
+        </div>
+        <div>
+            <label for="ville">Sélectionner votre Ville</label><br/>
+                <select id="ville" name="ville" size="1">
+                    <option value="Paris">Paris</option>
+                        <option value="Lille">Lille</option>
+                        <option value="Dunkerque">Dunkerque</option>
+                        <option value="Montpellier">Montpellier</option>
+                        <option value="Toulouse">Toulouse</option>
+                        <option value="Bordeaux">Bordeaux</option>
+                        <option value="Miramas">Miramas</option>
+                        <option value="Istres">Nantes</option>
+                        <option value="Marseille">Marseille</option>
+                        <option value="Calais">Calais</option>
+                </select>
+        </div>
+        <div>
+            <label for="date">Date d'arrivée :<br/>
+                <input type="date" name="date" >
+            </label>
+        </div>
+        <div>
+            <label for="nbr">Nombre de personnes *:<br/>
+                 <input type="number" name="nbr" required>
+            </label>
+        </div>
+        
+        <div>
+            <label for="opt">Vos options<br/>
+                <input type="checkbox" name="opt" value="clim">Climatisation
+                <input type="checkbox" name="opt" value="bar">Mini bar
+                <input type="checkbox" name="opt" value="jacuzzi">Jacuzzi
+            </label>
+        </div>
+        <div>
+            <textarea name="com" placeholder="Ajouter un commentaire"></textarea>
+        </div>
+        
+        <div>
+            <label for="cgv">Acceptation des Conditions Générales de Vente (CGV)*<br/>
+                <input type="radio" name="cgv"  value="accepte" required>J'accepte
+                <input type="radio" name="cgv" value="refus" >Je refuse
+            </label>
+        </div>
+        
+        <button type="submit" name="submit">Envoyer ma demande</button>
+    </form>
+</body>
+</html>
