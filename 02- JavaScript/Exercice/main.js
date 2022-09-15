@@ -194,3 +194,75 @@ console.log(Calculette.sub(10, 2));
 console.log(Calculette.mult(10,2));
 console.log(Calculette.div(10, 2));
 console.log(Calculette.moy([10, 2]));
+
+
+// * Recherche sur .map / .filter / .find / .reduce / .slice
+    //MAP
+    /*
+    La méthode map() crée un nouveau tableau avec les résultats 
+    de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
+    */
+    const array1 = [1, 4, 9, 16];
+    // passe une function à map
+    const map1 = array1.map(x => x * 2);
+    console.log(map1);
+    // résultat: Array [2, 8, 18, 32]
+
+    //FILTER
+    /*
+    La méthode filter() crée et retourne un nouveau tableau 
+    contenant tous les éléments du tableau d'origine qui remplissent une condition déterminée 
+    par la fonction callback.
+    */
+    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+    const result = words.filter(word => word.length > 6);
+    console.log(result);
+    // résultat: Array ["exuberant", "destruction", "present"]
+
+    //FIND
+    /*
+    La méthode find() renvoie la valeur du premier élément trouvé dans le tableau 
+    qui respecte la condition donnée par la fonction de test passée en argument. 
+    Sinon, la valeur undefined est renvoyée.
+    */
+    const array2 = [5, 12, 8, 130, 44];
+    const found = array2.find(element => element > 10);
+    console.log(found);
+    // résultat: 12
+
+    //REDUCE
+    /*
+    La méthode reduce() applique une fonction qui est un « accumulateur » 
+    et qui traite chaque valeur d'une liste (de la gauche vers la droite) 
+    afin de la réduire à une seule valeur.
+    */ 
+    const array3 = [1, 2, 3, 4];
+    // 0 + 1 + 2 + 3 + 4
+    const initialValue = 0;
+    const sumWithInitial = array3.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+    );
+    console.log(sumWithInitial);
+    // expected output: 10
+
+    //SLICE
+        /*
+        La méthode slice() renvoie un objet tableau, 
+        contenant une copie superficielle (shallow copy) d'une portion du tableau d'origine, 
+        la portion est définie par un indice de début et un indice de fin (exclus). 
+        Le tableau original ne sera pas modifié.
+        */
+    const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+    console.log(animals.slice(2));
+    // expected output: Array ["camel", "duck", "elephant"]
+    console.log(animals.slice(2, 4));
+    // expected output: Array ["camel", "duck"]
+    console.log(animals.slice(1, 5));
+    // expected output: Array ["bison", "camel", "duck", "elephant"]
+    console.log(animals.slice(-2));
+    // expected output: Array ["duck", "elephant"]
+    console.log(animals.slice(2, -1));
+    // expected output: Array ["camel", "duck"]
+    console.log(animals.slice());
+    // expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
