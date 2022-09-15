@@ -74,4 +74,4 @@ Supprimer des fichiers de l'index et du repo de travail :
 ```
 $ git rm <nom-fichier>
 ```
-
+https://itexpert.fr/blog/extensions-vscode/
