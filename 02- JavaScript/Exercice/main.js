@@ -197,7 +197,7 @@ console.log(Calculette.moy([10, 2]));
 
 
 // * Recherche sur .map / .filter / .find / .reduce / .slice
-    //MAP
+    // * MAP
     /*
     La méthode map() crée un nouveau tableau avec les résultats 
     de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
@@ -208,7 +208,7 @@ console.log(Calculette.moy([10, 2]));
     console.log(map1);
     // résultat: Array [2, 8, 18, 32]
 
-    //FILTER
+    // * FILTER
     /*
     La méthode filter() crée et retourne un nouveau tableau 
     contenant tous les éléments du tableau d'origine qui remplissent une condition déterminée 
@@ -219,7 +219,7 @@ console.log(Calculette.moy([10, 2]));
     console.log(result);
     // résultat: Array ["exuberant", "destruction", "present"]
 
-    //FIND
+    // * FIND
     /*
     La méthode find() renvoie la valeur du premier élément trouvé dans le tableau 
     qui respecte la condition donnée par la fonction de test passée en argument. 
@@ -230,7 +230,7 @@ console.log(Calculette.moy([10, 2]));
     console.log(found);
     // résultat: 12
 
-    //REDUCE
+    // * REDUCE
     /*
     La méthode reduce() applique une fonction qui est un « accumulateur » 
     et qui traite chaque valeur d'une liste (de la gauche vers la droite) 
@@ -246,7 +246,7 @@ console.log(Calculette.moy([10, 2]));
     console.log(sumWithInitial);
     // expected output: 10
 
-    //SLICE
+    // * SLICE
         /*
         La méthode slice() renvoie un objet tableau, 
         contenant une copie superficielle (shallow copy) d'une portion du tableau d'origine, 
@@ -266,3 +266,56 @@ console.log(Calculette.moy([10, 2]));
     // expected output: Array ["camel", "duck"]
     console.log(animals.slice());
     // expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+    //TODO: Créer son burger végétarien(pas de viande), vegan(pas de produit animal), 
+    //TODO: Créer son burger carnivore(pas de legumes), personnaliser(as u want)
+    //TODO: Faire un systeme de commande de burger à la demande(prompt())
+    const burger = 
+    [
+        "pain", 
+        "cheddar", 
+        "steak", 
+        "ketchup",
+        "cornichon", 
+        "salade", 
+        "tomate", 
+        "oignon"
+    ];
+
+    // * Burger Végétarien
+    const vegetarian = burger.filter(x => x != "steak");
+
+    // * Burger Vegan
+    const vegan = burger.filter(x => x != "cheddar" && x != "steak");
+    
+    // * Burger Carnivore
+    const carnivore = burger.slice(0,4);
+    
+    // * Burger Personnaliser
+    const perso = [burger[0],burger[1],burger[2],burger[1],burger[2], burger[3], burger[5], burger[6]];
+    console.log(perso);
+
+    // * System de commande
+    let cmd = "Choisisssez un burger : ";
+    cmd += "1. Vegetarien";
+    cmd += " 2. Vegan";
+    cmd += " 3. Carnivore";
+    cmd += " 4. Personnaliser";
+
+    let value = parseInt(window.prompt(cmd));
+    switch(value)
+    {
+        case 1 : 
+            console.log("Vegetarien" + vegetarian)
+            break;
+        case 2 :
+            console.log("Vegan" + vegan)
+            break;
+        case 3 :
+            console.log("Carnivore" + carnivore)
+            break;
+        case 4 :
+            console.log("Personnaliser" + personnaliser)
+            break;                
+    }
+
