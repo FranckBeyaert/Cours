@@ -109,7 +109,7 @@ function addDiv4()
 {
     var idTable = document.getElementById("divTP4");
     
-    var newLine = idTable.insertRow(1);
+    var newLine = idTable.insertRow(2);
 
     var newCell = newLine.insertCell(0);
     var newCell2 = newLine.insertCell(1);

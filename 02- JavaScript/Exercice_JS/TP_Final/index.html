@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style_final.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h2>Données des groupes à tirer</h2>
+        <form action="">
+            <fieldset id="groupes">
+                <div>
+                    <label for="tirage">Type de tirage
+                        <select name="tirage">
+                            <option value="aléatoire">Tirage aléatoire</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <label for="nbr_gp">
+                        Nombre de groupes dans lesquels répartir les participants
+                            <input type="number" name="nbr_gp" value="2"></option>
+                        </select>
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset id="fieldpart">Participants
+
+                <input type="text" id="participant" name="participant" value="">
+                <button onclick="addpart()">Ajouter un participant</button>
+            </fieldset>
+            <button onclick="generate()">Génére les groupes</button>
+        </form>
+    </main>
+    <footer>
+        <h2>Les groupes générés</h2>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

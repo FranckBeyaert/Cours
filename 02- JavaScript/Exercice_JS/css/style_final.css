@@ -1,0 +1,21 @@
+main
+{
+    background-color:#EDECEC;
+    padding: 1em;
+}
+
+footer
+{
+    background-color: #696969;
+    color: #fff;
+    padding: 1em;
+}
+
+label
+{
+    display: flex;
+}
+
+
+
+
