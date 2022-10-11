@@ -10,7 +10,6 @@
 <body>
     <main>
         <h2>Données des groupes à tirer</h2>
-        <form action="">
             <fieldset id="groupes">
                 <div>
                     <label for="tirage">Type de tirage
@@ -20,25 +19,18 @@
                     </label>
                 </div>
                 <div>
-                    <label for="nbr_gp">
-                        Nombre de groupes dans lesquels répartir les participants
-                            <input type="number" name="nbr_gp" value="2"></option>
-                        </select>
-                    </label>
+                    Nombre de groupes désiré <INPUT TYPE="integer" name="groupNum" value="">                        
                 </div>
             </fieldset>
             <fieldset id="fieldpart">Participants
-
-                <input type="text" id="participant" name="participant" value="">
                 <button onclick="addpart()">Ajouter un participant</button>
             </fieldset>
-            <button onclick="generate()">Génére les groupes</button>
-        </form>
+            <INPUT TYPE="button" NAME="generate" Value="Générer les groupes" onClick="generate(this.form)">
     </main>
     <footer>
         <h2>Les groupes générés</h2>
+        <div id="groups"></div>
     </footer>
-
     <script src="main.js"></script>
 </body>
 </html>
