@@ -1,3 +1,2 @@
 "use strict";
-console.log("banana");
-console.log("bananaa");
+console.log("Banana World!");
