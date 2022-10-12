@@ -1,0 +1,21 @@
+"use strict";
+// ! Typage : Avantage du typage : Obtenir le résultat attendu
+function add(x, y, showResult, phrase) {
+    // if(typeof x !== 'number' || typeof y !== 'number')
+    // {
+    //     throw new Error('Type incorrect');
+    // }
+    const result = x + y;
+    if (showResult) {
+        console.log(phrase + result);
+    }
+    else {
+        return result;
+    }
+}
+const x1 = 5;
+const y1 = 10.8;
+const printResult = true;
+const resultPhrase = "Le résultat est ";
+const result = add(x1, y1, printResult, resultPhrase);
+console.log(result);
