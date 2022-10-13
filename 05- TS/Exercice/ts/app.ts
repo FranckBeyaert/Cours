@@ -1,42 +1,121 @@
-//spread operator
-
-const sports = ["Football", "Rugby"];
-const sports2 = ["Tennis"];
-
-sports2.push(...sports);
-console.log(sports2);
-
-const personnes = 
+abstract class Person
 {
-    name : "Tintin",
-    age : 33
-}
+    name: string;
 
-const copiePersonnes = {...personnes};
-copiePersonnes.name = "Toto";
-
-console.log(personnes);
-console.log(copiePersonnes)
-
-//rest operator
-
-const add2 = (...numbers : number[]): number =>
-{
-    return numbers.reduce((currentResult, currentValue) =>
+    constructor(name: string)
     {
-        return currentResult + currentValue;
-    },0);
+        this.name = name;
+    }
+
+    display(): void
+    {
+        console.log(this.name);
+    }
+
+    abstract find(name: string): Person;
 }
 
-const additionNombre = add2(5,10,2,3.9);
-console.log(additionNombre);
+class Employee extends Person{
+    empCode: number;
 
-// rest operator + destructuring
+    constructor(name: string, code: number)
+    {
+        super(name);
+        this.empCode = code;
+    }
 
-const [sport1, sport2, ...autresSport] = sports2;
-console.log(sports2,sport1,sport2,autresSport);
+    find(name: string): Person
+    {
+        return new Employee(name, 1);
+    }
+}
 
-const { firstname : prenom, age} = personnes;
+let emp: Person = new Employee("James", 100);
+emp.display();
 
-console.log(prenom, age, personnes);
+let emp2: Person = emp.find("Steve");
+console.log(emp2);
 
+enum VType
+{
+    Auto,
+    Camion,
+    Moto
+}
+
+abstract class Vehicule
+{
+    abstract nbRoues: number;
+    abstract poid: number;
+    abstract vTransport: number;
+    abstract marque: string;
+    abstract type: VType;
+    
+
+    abstract BruitMoteur():void;
+    abstract AfficherVolumeTransportable():void;
+}
+
+class voiture implements Vehicule
+{
+    nbRoues: number;
+    poid: number;
+    vTransport: number;
+    marque: string;
+    type: VType;    
+
+    constructor(nbRoues: number, poid: number, volTransport: number, marque: string)
+    {
+        this.nbRoues = nbRoues;
+        this.poid = poid;
+        this.vTransport = volTransport;
+        this.marque = marque;
+        this.type = VType.Auto;
+    }
+
+    BruitMoteur():string
+    {
+        return 'vroom';
+    }
+
+    AfficherVolumeTransportable():void
+    {
+        console.log(this.vTransport);
+    }
+}
+
+const MShelby1967:voiture = new voiture(4,1623, 5,'Mustang');
+console.log(MShelby1967.BruitMoteur());
+console.log(MShelby1967);
+
+class moto implements Vehicule
+{
+    nbRoues: number;
+    poid: number;
+    vTransport: number;
+    marque: string;
+    type: VType;    
+
+    constructor(nbRoues: number, poid: number, volTransport: number, marque: string)
+    {
+        this.nbRoues = nbRoues;
+        this.poid = poid;
+        this.vTransport = volTransport;
+        this.marque = marque;
+        this.type = VType.Moto;
+    }
+
+    BruitMoteur():string
+    {
+        return 'Mééé...';
+    }
+
+    AfficherVolumeTransportable():void
+    {
+        console.log(this.vTransport);
+    }
+}
+
+const fatboy:moto = new moto(2,317, 1,'Harley Davidson');
+console.log(fatboy.BruitMoteur());
+console.log(fatboy);

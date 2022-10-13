@@ -1,5 +1,5 @@
 "use strict";
-//types function
+// * types function
 function Add(x, y) {
     return x + y;
 }

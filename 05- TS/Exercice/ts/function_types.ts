@@ -1,4 +1,4 @@
-//types function
+// * types function
 
 function Add(x:number, y:number)
 {
