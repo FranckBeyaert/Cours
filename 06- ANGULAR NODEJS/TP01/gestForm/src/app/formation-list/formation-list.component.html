@@ -1,0 +1,20 @@
+<h1 class="center">LISTE FORMATIONS</h1>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6" *ngFor="let elt of formations">
+            <div class="card horizontal" appFormationCard (click)="goToFormation(elt)">
+                <div class="card-image" appFormationImg>
+                    <img [src]="elt.icon">
+                </div>
+                <div class="card-body">
+                <h4 class="center">{{ elt.nom}}</h4>
+                    <p class="center">{{ elt.version}}</p>
+                    <p class="center">{{ elt.date | date:"dd/mm/yyyy" }}</p>
+                    <span *ngFor="let langage of elt.langages" [class]="langage | formationLangages">
+                        {{langage}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
