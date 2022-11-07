@@ -1,9 +1,31 @@
-<h1>Liste Formation</h1>
-<input #formation type="text" (keyup.enter)="selectFormation(formation.value)" autofocus/>
+
+<h1 class="center">LISTE FORMATIONS</h1>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6" *ngFor="let elt of formations">
+            <div class="card horizontal" appFormationCard>
+                <div class="card-image" appFormationImg>
+                    <img [src]="elt.icon">
+    </div>
+    <div class="card-body">
+        <h4 class="center">{{ elt.nom}}</h4>
+        <p class="center">{{ elt.version}}</p>
+        <p class="center">{{ elt.date }}</p>
+        <p class="center" *ngif="elt.formateur !=''"{{elt.formateur}}>
+                        <p class="center" *ngif="elt.formateur ==''">Formateur inconnu</p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+</div>
+
+
+
+<!--<input #formation type="text" (keyup.enter)="selectFormation(formation.value)" autofocus/>
 <p>{{formationSelected?.nom}} {{formationSelected?.duree}}</p>
 <p>{{msgErr}}</p>
 <p>{{formations[0].nom}}</p>
 <p>{{formations[1].nom}}</p>
 <p>{{formations[2].nom}}</p>
-<p>{{formations[3].nom}}</p>
+<p>{{formations[3].nom}}</p>-->
 

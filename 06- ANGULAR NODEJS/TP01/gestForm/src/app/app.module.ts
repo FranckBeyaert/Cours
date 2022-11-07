@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormationCardDirective } from './formation-card.directive';
+import { FormationImgDirective } from './formation-img.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormationCardDirective,
+    FormationImgDirective
   ],
   imports: [
     BrowserModule,
