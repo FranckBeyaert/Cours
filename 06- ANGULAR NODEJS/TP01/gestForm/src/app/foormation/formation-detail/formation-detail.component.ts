@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ListFormation } from '../formation-mock';
-import { Formation } from '../formation.model';
+import { ListFormation } from '../../formation-mock';
+import { Formation } from '../../formation.model';
 
 @Component({
   selector: 'app-formation-detail',

@@ -3,11 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormationCardDirective } from './formation-card.directive';
-import { FormationImgDirective } from './formation-img.directive';
-import { FormationLangagesPipe } from './formation-langages.pipe';
-import { FormationListComponent } from './formation-list/formation-list.component';
-import { FormationDetailComponent } from './formation-detail/formation-detail.component';
+import { FormationCardDirective } from './foormation/formation-card.directive';
+import { FormationListComponent } from './foormation/formation-list/formation-list.component';
+import { FormationDetailComponent } from './foormation/formation-detail/formation-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
@@ -15,8 +13,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     FormationCardDirective,
-    FormationImgDirective,
-    FormationLangagesPipe,
     FormationListComponent,
     FormationDetailComponent,
     PageNotFoundComponent,
