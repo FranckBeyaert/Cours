@@ -6,17 +6,18 @@
             <div class="card horizontal" appFormationCard>
                 <div class="card-image" appFormationImg>
                     <img [src]="elt.icon">
+                </div>
+                <div class="card-body">
+                <h4 class="center">{{ elt.nom}}</h4>
+                    <p class="center">{{ elt.version}}</p>
+                    <p class="center">{{ elt.date | date:"dd/mm/yyyy" }}</p>
+                    <span *ngFor="let langage of elt.langages" [class]="langage | formationLangages">
+                        {{langage}}
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <h4 class="center">{{ elt.nom}}</h4>
-        <p class="center">{{ elt.version}}</p>
-        <p class="center">{{ elt.date }}</p>
-        <p class="center" *ngif="elt.formateur !=''"{{elt.formateur}}>
-                        <p class="center" *ngif="elt.formateur ==''">Formateur inconnu</p>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
 </div>
 
 

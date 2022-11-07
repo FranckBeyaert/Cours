@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormationCardDirective } from './formation-card.directive';
 import { FormationImgDirective } from './formation-img.directive';
+import { FormationLangagesPipe } from './formation-langages.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormationCardDirective,
-    FormationImgDirective
+    FormationImgDirective,
+    FormationLangagesPipe
   ],
   imports: [
     BrowserModule,
