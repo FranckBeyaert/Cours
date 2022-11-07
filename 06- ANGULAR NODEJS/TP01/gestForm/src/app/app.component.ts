@@ -9,16 +9,29 @@ import { Formation } from './formation.model';
 })
 export class AppComponent implements OnInit {
   formations = ListFormation;
+  formationSelected : Formation|undefined;
+  msgErr : string ='';
 
   ngOnInit()
   {
     console.table(this.formations);
-    this.selectFormation(this.formations[0]);
+    //this.selectFormation(this.formations[0]);
   }
 
-  selectFormation(formation: Formation)
+  selectFormation(formation: string)
   {
-    console.log('Vous avez choisie la formation ${formations.nom}');
+    const index : number = Number(formation);
+    this.formationSelected = this.formations.find(formation => formation.id == index);
+    if(!this.formationSelected)
+    {
+      this.msgErr = 'Formation non trouvée';
+    }
+    else
+    {
+      this.msgErr = '';
+    }
+    //console.log(`Vous avez choisie la formation ${this.formations[index].nom} d'une durée de ${this.formations[index].duree} jours`);
+    
   }
   
 }
