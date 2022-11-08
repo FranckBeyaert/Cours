@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Participant } from '../participant.model';
 import { ListParticipants } from '../participant.mock';
+import { ParticipantService } from '../participant.service';
 
 @Component({
   selector: 'app-participant-list',
@@ -10,21 +11,22 @@ import { ListParticipants } from '../participant.mock';
   ]
 })
 export class ParticipantListComponent implements OnInit {
-  participants = ListParticipants;
+  participants : Participant[];
   participantSelected : Participant|undefined;
   msgError: string = '';
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private participantServ: ParticipantService) { }
 
   ngOnInit(): void 
   {
+    this.participants = this.participantServ.getParticipantsList();
     console.table(this.participants);
   }
 
   selectParticipant(participant: string)
   {
     const index : number = Number(participant)
-    this.participantSelected = this.participants.find(participant => participant.id == index)
+    this.participantSelected = this.participantServ.getParticiantById(index);
     if(!this.participantSelected)
     {
       this.msgError = "Participant non trouvé"

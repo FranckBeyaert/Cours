@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListParticipants } from '../participant.mock';
 import { Participant } from '../participant.model';
+import { ParticipantService } from '../participant.service';
 
 
 @Component({
@@ -11,14 +12,15 @@ import { Participant } from '../participant.model';
   ]
 })
 export class ParticipantDetailComponent implements OnInit {
-  participants = ListParticipants;
+  participants : Participant[];
   participant : Participant|undefined;
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private participantServ : ParticipantService) { }
 
   ngOnInit(): void 
   {
+    this.participants = this.participantServ.getParticipantsList();
     const participantId = Number(this.route.snapshot.paramMap.get('id'));
-    this.participant = this.participants.find(participant => participant.id == participantId);
+    this.participant = this.participantServ.getParticiantById(participantId)
   }
 
   goToParticipant()
