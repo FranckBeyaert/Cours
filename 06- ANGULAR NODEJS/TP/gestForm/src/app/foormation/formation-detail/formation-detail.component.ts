@@ -12,10 +12,7 @@ import { Formation } from '../formation.model';
 export class FormationDetailComponent implements OnInit {
   formations = ListFormation
   formation: Formation|undefined
-  constructor(private router: Router, private route: ActivatedRoute) 
-  { 
-
-  }
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void 
   {
