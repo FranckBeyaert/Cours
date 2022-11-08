@@ -27,4 +27,9 @@ export class FormationDetailComponent implements OnInit {
     this.router.navigate(['formations']);
   }
 
+  goToEditFormation(formation: Formation)
+  {
+    this.router.navigate(['editformation',formation.id]);
+  }
+
 }

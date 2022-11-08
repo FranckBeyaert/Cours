@@ -8,7 +8,7 @@ export const ListFormation : Formation[] = [{
   version : "14.2.6",
   icon: '/assets/img/angular.png',
   formateur: 'Mehdy EL MOUTAOUKIL',
-    langages : ["TypeScript","Html", "Css"]
+  langages : ["TypeScript","Html", "Css"]
 },
 {
   id : 2,
