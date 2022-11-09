@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FoormationModule } from './foormation/foormation.module';
 import { ParticipantModule } from './participant/participant.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 
@@ -13,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

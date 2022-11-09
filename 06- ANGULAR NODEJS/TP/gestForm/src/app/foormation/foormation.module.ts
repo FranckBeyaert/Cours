@@ -10,13 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { FormationCreateComponent } from '../formation/formation-create/formation-create.component';
 import { FormationEditComponent } from '../formation/formation-edit/formation-edit.component';
 import { FormationFormComponent } from '../formation/formation-form/formation-form.component';
+import { AuthGuard } from '../auth.guard';
 
 const formationroutes: Routes = 
 [
-  {path: 'formations', component: FormationListComponent},
-  {path: 'formations/:id', component: FormationDetailComponent},
-  {path: 'newformation', component: FormationCreateComponent},
-  {path: 'editformation/:id', component: FormationEditComponent}
+  {path: 'formations', component: FormationListComponent, canActivate: [AuthGuard]},
+  {path: 'formations/:id', component: FormationDetailComponent, canActivate: [AuthGuard]},
+  {path: 'newformation', component: FormationCreateComponent, canActivate: [AuthGuard]},
+  {path: 'editformation/:id', component: FormationEditComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({

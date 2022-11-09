@@ -8,13 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { ParticipantFormComponent } from './participant-form/participant-form.component';
 import { ParticipantCreateComponent } from './participant-create/participant-create.component';
 import { ParticipantEditComponent } from './participant-edit/participant-edit.component';
+import { AuthGuard } from '../auth.guard';
 
 const participantroute : Routes = 
 [
-  {path: 'participants', component: ParticipantListComponent},
-  {path: 'participants/:id', component: ParticipantDetailComponent},
-  {path: 'newparticipant', component: ParticipantCreateComponent},
-  {path: 'editparticipant/:id', component: ParticipantEditComponent}
+  {path: 'participants', component: ParticipantListComponent, canActivate: [AuthGuard]},
+  {path: 'participants/:id', component: ParticipantDetailComponent, canActivate: [AuthGuard]},
+  {path: 'newparticipant', component: ParticipantCreateComponent, canActivate: [AuthGuard]},
+  {path: 'editparticipant/:id', component: ParticipantEditComponent, canActivate: [AuthGuard]}
 ]
 
 
