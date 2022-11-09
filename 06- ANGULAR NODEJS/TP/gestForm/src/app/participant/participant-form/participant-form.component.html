@@ -1,0 +1,70 @@
+<form *ngIf="participant" (ngSubmit)="onSubmit()" #participantForm="ngForm">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel">
+                <!-- Nom -->
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z0-9àéèç ]{1,20}$"
+                        [(ngModel)]="participant.nom" #nom="ngModel"
+                        name="nom">
+                </div>
+                <div [hidden]="nom.valid || nom.pristine" class="card-panel red accent-1">
+                    Nom de formation obligatoire !
+                </div>
+
+                <!-- Prenom -->
+                <div class="form-group">
+                    <label for="prenom">Prenom</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z0-9àéèç ]{1,20}$"
+                        [(ngModel)]="participant.prenom" #prenom="ngModel"
+                        name="prenom">
+                </div>
+                <div [hidden]="prenom.valid || prenom.pristine" class="card-panel red accent-1">
+                    Prenom de participant obligatoire !
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z0-9àéèç ]{1,20}$"
+                        [(ngModel)]="participant.age" #age="ngModel"
+                        name="age">
+                </div>
+                <div [hidden]="age.valid || age.pristine" class="card-panel red accent-1">
+                    Age de participant obligatoire !
+                </div>                
+
+                <!-- Sexe -->
+                <div class="form-group">
+                    <label for="sexe">Sexe</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z0-9àéèç ]{1,20}$"
+                        [(ngModel)]="participant.sexe" #sexe="ngModel"
+                        name="sexe">
+                </div>
+                <div [hidden]="sexe.valid || sexe.pristine" class="card-panel red accent-1">
+                    Sexe de participant obligatoire !
+                </div>
+
+                <!-- Espece -->
+                <div class="form-group">
+                    <label for="espece">Espece</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z0-9àéèç ]{1,20}$"
+                        [(ngModel)]="participant.espece" #espece="ngModel"
+                        name="espece">
+                </div>
+                <div [hidden]="espece.valid || espece.pristine" class="card-panel red accent-1">
+                    Espece du participant obligatoire !
+                </div>
+
+                <!-- Submit button -->
+                <div class="divider"></div>
+                <div class="section center">
+                <button type="submit" class="waves-effect waves-light btn" [disabled]="!participantForm.form.valid">
+                    Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<h3 *ngIf="!participant" class="center">Aucun participant trouvé...</h3>

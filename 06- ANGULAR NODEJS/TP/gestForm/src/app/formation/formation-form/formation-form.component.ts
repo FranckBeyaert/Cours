@@ -14,9 +14,7 @@ export class FormationFormComponent implements OnInit {
   langages: string[] = ['TypeScript', 'JavaScript', 'Html', 'Css', 'Php', 'Twig', 'JavaEE'];
   constructor(private formationSrv: FormationService, private router: Router) { }
 
-  ngOnInit(): void 
-  {
-  }
+  ngOnInit(): void {}
 
   onSubmit()
   {

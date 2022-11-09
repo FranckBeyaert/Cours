@@ -28,4 +28,9 @@ export class ParticipantDetailComponent implements OnInit {
     this.router.navigate(['participants']);
   }
 
+  goToEditParticipant(participant: Participant)
+  {
+    this.router.navigate(['editparticipant', participant.id]);
+  }
+
 }
