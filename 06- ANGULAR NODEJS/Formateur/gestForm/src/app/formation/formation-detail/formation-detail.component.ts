@@ -21,7 +21,9 @@ export class FormationDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const formationId = Number(this.route.snapshot.paramMap.get('id'));
-    this.formation = this.formationSrv.getFormationById(formationId);
+    this.formationSrv.getFormationById(formationId).subscribe(resultat =>{
+      this.formation = resultat;
+    });
   }
 
   goToFormationList(){

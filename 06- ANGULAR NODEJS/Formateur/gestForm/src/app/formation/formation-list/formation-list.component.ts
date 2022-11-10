@@ -20,7 +20,9 @@ export class FormationListComponent implements OnInit {
     private formationSrv: FormationService){}
 
   ngOnInit() {
-    this.formations = this.formationSrv.getFormationList();
+   this.formationSrv.getFormationList().subscribe((resultat) =>{
+    this.formations = resultat;
+   });
   }
 
   // selectFormation(formation: string){

@@ -23,7 +23,9 @@ export class FormationEditComponent implements OnInit {
   ngOnInit(): void {
     const formationId: number = Number(this.route.snapshot.paramMap.get('id'));
     if(formationId){
-      this.formation = this.formationSrv.getFormationById(formationId);
+      this.formationSrv.getFormationById(formationId).subscribe(resultat => {
+        this.formation = resultat
+      });
     } else {
       this.formation = undefined;
     }

@@ -23,8 +23,8 @@ export class FormationFormComponent  {
   onSubmit(){
     //creation
     if(this.formation.id == undefined){
-      this.formation.id = this.formationSrv.getFormationList().length+1
-      this.formationSrv.getFormationList().push(this.formation);
+      // this.formation.id = this.formationSrv.getFormationList().length+1
+      // this.formationSrv.getFormationList().push(this.formation);
       this.router.navigate(['formations']);
     } else {
       //modification

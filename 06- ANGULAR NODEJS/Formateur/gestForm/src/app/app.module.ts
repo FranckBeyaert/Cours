@@ -8,6 +8,7 @@ import { FormationModule } from './formation/formation.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ParticipantModule } from './participant/participant.module';
 import { AuthComponent } from './auth/auth.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AuthComponent } from './auth/auth.component';
     AuthComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     FormationModule,
@@ -23,7 +25,7 @@ import { AuthComponent } from './auth/auth.component';
     AppRoutingModule,
   ],
   exports: [],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
