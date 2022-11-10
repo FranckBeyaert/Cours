@@ -1,0 +1,24 @@
+<h3 class="center">LISTE PARTICIPANTS</h3>
+<div class="center">
+    <h5><a routerLink="/create-participant">NOUVEAU</a></h5>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nom / Prénom</th>
+            <th>Sexe</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let participant of listeParticipants" (click)="goToParticipant(participant)">
+            <td [participantSexe]="participant.sexe">{{ participant.nom }} {{participant.prenom}}</td>
+            <td>
+                <strong *ngIf="participant.sexe === sexeEnum.femme">F</strong>
+                <strong *ngIf="participant.sexe === sexeEnum.homme">H</strong>
+            </td>
+            <td>{{ participant.age }}</td>
+        </tr>
+    </tbody>
+</table>

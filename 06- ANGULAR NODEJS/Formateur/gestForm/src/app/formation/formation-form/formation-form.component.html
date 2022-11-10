@@ -1,0 +1,87 @@
+<form *ngIf="formation" (ngSubmit)="onSubmit()" #formationForm="ngForm">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel">
+                <!-- Nom -->
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z0-9àéèç ]{1,20}$"
+                        [(ngModel)]="formation.nom" #nom="ngModel"
+                        name="nom">
+                </div>
+                <div [hidden]="nom.valid || nom.pristine" class="card-panel red accent-1">
+                    Nom erroné ou vide
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" required [(ngModel)]="formation.date" 
+                    #date="ngModel" name="date">
+                </div>
+                <div [hidden]="date.valid || date.pristine" class="card-panel red accent-1">
+                    Date erronée ou vide
+                </div>
+
+
+                <!-- Duree -->
+                <div class="form-group">
+                    <label for="duree">Durée</label>
+                    <input type="text" class="form-control" required pattern="^[0-9]{1,2}$" 
+                    [(ngModel)]="formation.duree"
+                        #duree="ngModel" name="duree">
+                </div>
+                <div [hidden]="duree.valid || duree.pristine" class="card-panel red accent-1">
+                    Durée erronée ou vide
+                </div>
+
+                <!-- Version -->
+                <div class="form-group">
+                    <label for="version">Version</label>
+                    <input type="text" class="form-control" required pattern="^[0-9.]{1,20}$"
+                        [(ngModel)]="formation.version" #version="ngModel" name="version">
+                </div>
+                <div [hidden]="version.valid || version.pristine" class="card-panel red accent-1">
+                    Version erronée ou vide
+                </div>
+
+                <!-- Formateur -->
+                <div class="form-group">
+                    <label for="formateur">Formateur</label>
+                    <input type="text" class="form-control" required 
+                        [(ngModel)]="formation.formateur" #formateur="ngModel" pattern="[a-zA-Z ]*" name="formateur">
+                </div>
+                <div [hidden]="formateur.valid || formateur.pristine" class="card-panel red accent-1">
+                    Formateur erroné ou vide
+                </div>
+
+                <!-- Langages -->
+                <form class="form-group">
+                    <label>Langages</label>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col s8 m4" style="height: 50px;" *ngFor="let langage of langages">
+                            
+                                <input #check type="checkbox" class="filled-in" id="{{ langage }}" [value]="langage"
+                                    [checked]="hasLangage(langage)"
+                                    (change)="selectLangage(check.value, langage)" />
+                                <span [attr.for]="langage">
+                                    <div class="{{ langage | formationLangages }}">
+                                        {{ langage }}
+                                    </div>
+                                </span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Submit button -->
+                <div class="divider"></div>
+                <div class="section center">
+                    <button type="submit" class="waves-effect waves-light btn" [disabled]="!formationForm.form.valid">
+                        Valider</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+<h3 *ngIf="!formation" class="center">Aucune formation trouvée...</h3>
