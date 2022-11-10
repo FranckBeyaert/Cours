@@ -41,4 +41,14 @@ export class FormationService {
   {
     return this.http.post<Formation>(baseUrl, formation, httpOptions)
   }
+
+  editFormation(formation: Formation): Observable<Formation>
+  {
+    return this.http.put<Formation>(`${baseUrl}/${formation.id}`, formation, httpOptions)
+  }
+
+  deleteFormation(formationId: Formation): Observable<any>
+  {
+    return this.http.delete<Formation>(`${baseUrl}/${formationId}`, httpOptions);
+  }
 }
