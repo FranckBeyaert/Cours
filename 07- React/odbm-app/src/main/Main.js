@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Main.css'
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import Preferences from '../components/Preferences';
+import App from '../App';
 import Login from '../components/Login';
+import useToken from '../components/useToken'
 
 
 function Main()
 {
-    const [token, setToken] = useState()
+    const { token, setToken } = useToken();
+
 
     if(!token)
     {
@@ -23,7 +26,7 @@ function Main()
                     <Routes>
                         <Route path="/dashboard" element={<Dashboard/>}/>
                         <Route path="/preferences" element={<Preferences/>}/>
-                    </Routes>
+                        <Route path="/app" element={<App/>}/>                    </Routes>
                 </BrowserRouter>
             </React.StrictMode>
         </div>
