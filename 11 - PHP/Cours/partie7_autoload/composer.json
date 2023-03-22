@@ -1,0 +1,11 @@
+{
+    "name": "administrateur/partie7_autoload",
+    "autoload": {
+        "psr-4": {
+            "Models\\":"Models",
+            "Exception\\": "Exception",
+            "Administrateur\\Partie7Autoload\\": "src/"
+        }
+    },
+    "require": {}
+}
