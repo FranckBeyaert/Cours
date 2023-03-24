@@ -1,0 +1,9 @@
+{
+    "name": "mehdi/partie8_routeur",
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    },
+    "require": {}
+}

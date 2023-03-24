@@ -1,10 +1,10 @@
 {
-    "name": "administrateur/partie7_autoload",
+    "name": "mehdi/partie7_autoload",
     "autoload": {
         "psr-4": {
             "Models\\":"Models",
-            "Exception\\": "Exception",
-            "Administrateur\\Partie7Autoload\\": "src/"
+            "Exception\\":"Exception",
+            "Mehdi\\Partie7Autoload\\": "src/"
         }
     },
     "require": {}

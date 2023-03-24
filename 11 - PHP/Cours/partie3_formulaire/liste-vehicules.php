@@ -1,31 +1,31 @@
 <?php
 
 //header
-include_once "includes/header.php";
+include_once("includes/header.php");
 
 //navbar
-include_once "includes/nav.php";
-
-//DBConnection
-include_once "includes/connect.php";
+include_once("includes/nav.php");
 
 //Connexion à la base de données
-require_once("inclues/connect.php");
+require_once("includes/connect.php");
 
-$sql = "SELECT * FROM 'vehicules'";
+$sql = "SELECT * FROM `vehicule`";
 $rqtVehicule = $db->query($sql);
 $listeVehicule = $rqtVehicule->fetchAll();
 ?>
 
-<?php foreach($listeVehicule as $vehicule):?>
+
+<?php foreach ($listeVehicule as $vehicule): ?>
     <vehicule>
-        <h3> <?= $vehicule["nom"]?> </h3>
-        <p><?= $vehicule["marque"]?></p>
+        <h3><a href="vehicule.php?id=<?= $vehicule["idvehicule"] ?>">
+        <?= strip_tags($vehicule["nom"]) ?></a></h3>
     </vehicule>
 
-<?php endforeach;
+<?php endforeach; 
+
 
 //footer
-include_once "includes/footer.php";
+include("includes/footer.php");
+
 
 ?>

@@ -1,0 +1,5 @@
+#On démarre le moteur de réecriture
+RewriteEngine On
+
+#On réecrit l'url
+RewriteRule ^(.*)$ index.php

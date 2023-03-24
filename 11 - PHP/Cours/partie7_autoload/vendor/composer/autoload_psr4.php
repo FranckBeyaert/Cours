@@ -6,5 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Administrateur\\Partie7Autoload\\' => array($baseDir . '/src'),
+    'Models\\' => array($baseDir . '/Models'),
+    'Mehdi\\Partie7Autoload\\' => array($baseDir . '/src'),
+    'Exception\\' => array($baseDir . '/Exception'),
 );

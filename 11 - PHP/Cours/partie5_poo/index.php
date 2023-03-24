@@ -1,33 +1,44 @@
 <?php
 
-require_once("models/vehicule.php");
-require_once("models/connexionBdd.php");
-require_once("models/fille.php");
+require_once('Models/neuve/vehicule.php');
 
-//Instancier un objet de type Vehicule
-$vehicule1 = new Vehicule("","","");
-$vehicule2 = new Vehicule("","","");
+use Models\Neuve\Vehicule;
 
-//Alternative
-$name = "vehicule";
-$vehicule3 = new $name("fatboy","cruiser","Harley Davidson");
-echo $vehicule3->getNom().'<br>';
-$vehicule1->setNom("fatbob");
-$vehicule1->getNom().'<br>';
-// echo $vehicule3->nom;
-// echo $vehicule3->modele;
-// echo $vehicule3->marque;
+const USER = "root";
+const PASS = "root";
+const HOST = "localhost";
+const DBNAME = "formationphp";
 
-// echo $vehicule1->echoNomVehicule();
-// echo $vehicule2->echoNomVehicule();
-// echo $vehicule3->echoNomVehicule();
+$dsn = "mysql:dbname=".DBNAME.";host=".HOST;
 
-//Appel de la méthode static grâce à l'opérateur de résolution '::'
-ConnexionBdd::connect().'<br>';
-//Appel d'un attribut static
-// echo ConnexionBdd::$host;
+try {
+    $db = new PDO($dsn,USER,PASS);
+    $db->exec("SET NAMES UTF8"); //Forcer les échanges en utf8
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+    //echo "Connexion établie <br />";
+    //var_dump($db);
+} catch(PDOException $e){
+    die("erreur:".$e->getMessage());
+}
 
-$fille = new Fille("nom1", "prenom1", 26);
-echo $fille->getNom().'<br>';
+//Requete SQL
+$sql = "SELECT * FROM `vehicule` WHERE `idvehicule`=155";
+//Execute la RQT
+$rqt = $db->query($sql);
+//On identifie le type de sortie comme étant une classe Vehicule
+$rqt->setFetchMode(PDO::FETCH_CLASS, Vehicule::class);
+
+//Instancier ma variable Vehicule
+$vehicule = $rqt->fetch();
+
+echo $vehicule->getMarque();
+echo $vehicule->getModele();
+echo $vehicule->getNom();
+
+
+
+
+
+
 
 ?>

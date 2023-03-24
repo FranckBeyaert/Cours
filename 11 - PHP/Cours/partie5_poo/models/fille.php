@@ -1,22 +1,23 @@
 <?php
 
-require_once("Mere.php");
+require_once("mere.php");
 
-class Fille extends Mere{
-
+class Fille extends Mere {
     private $age;
-
     public function __construct($nom, $prenom, $age){
-        parent::__construct($nom, $prenom); //représente le super()
+        parent::__construct($nom, $prenom); // représente le super()
         $this->age = $age;
     }
-
-	/**
-	 * @return mixed
-	 */
-	public function Test() {
-        echo "test";
-	}
+    
+    public function test2(){
+        echo "test2";
+    }
+    
+    public function test3(){
+        echo "test3";
+    }
 }
+
+
 
 ?>

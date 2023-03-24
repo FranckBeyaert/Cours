@@ -1,55 +1,42 @@
 <?php
 
-$nomImg = "Vendor.jpg";
-$img = __DIR__."/uploads/".$nomImg;
-
+//Récupération des données sous forme de tableau
+//Une ligne txt => une ligne de tableau
+$fichier2 = file("uploads/fichier.txt");
 // echo '<pre>';
-// var_dump(getimagesize($img));
+// print_r($fichier2);
 // echo '</pre>';
 
-$config = getimagesize($img);
-$largeur = $config[0];
-$hauteur = $config[1];
+//Récupération du contenu de mon fichier dans une variable
+$chaine = file_get_contents("uploads/fichier.txt");
+// var_dump($chaine.'<br >');
 
-//Instancier une nouvelle image
-$newImg = imagecreatetruecolor($largeur / 2, $hauteur / 2);
 
-//Création d'un clone de mon image source
-$src = imagecreatefromjpeg($img);
+//Ouvrir notre fichier dans une variable
+//\n \r \r\n => utiliser le mode binaire 'b'
+$fichier = fopen("uploads/fichier.txt", "a+");
+if(!$fichier){
+    echo "fichier introuvable";
+} else {
 
-//Configuration de l'image dest
-imagecopyresampled(
-    $newImg, // image de destination
-    $src, // image source
-    0, // pos x => coin supérieur gauche dest
-    0, // pos y => coin supérieur droit dest
-    0, // pos x => coin supérieur gauche src
-    0, // pos y => coin supérieur droit src
-    $largeur / 2, // largeur img dest
-    $hauteur / 2, // hauteur img dest
-    $largeur, // largeur img src
-    $hauteur, // hauteur img src
-);
+    //Tant que on est pas arrivé à la fin du fichier
+    while(!feof($fichier)){
+        //Affichage par ligne
+        echo fgets($fichier).'<br >'; 
+    
+        //     //Récupération d'un caractére 
+        //     //var_dump(fgetc($fichier));
+    
+        //     //Lecture par nbr caractéres
+        //     //echo fread($fichier, 10).'<br >';
+    }
 
-//Création de l'image redimensionnée
-imagejpeg($newImg, __DIR__."/uploads/resize".$nomImg);
+    //Ecriture dans un fichier
+    fwrite($fichier, "test write\r\n");    
 
-//Recadrer une image
-$imgCrop = imagecrop($src,
-[
-    'x' => "100",
-    'y' => "100",
-    'width' => "200",
-    'height' => "200",
-]);
+    fclose($fichier);
+}
 
-//Création de l'image recadrée
-imagejpeg($imgCrop, __DIR__."/uploads/crop".$nomImg);
 
-//Rotation d'une image
-$imageRotate = imagerotate($src, 180, 0);
-
-//Création de l'image rotation
-imagejpeg($imageRotate, __DIR__."/uploads/rotate".$nomImg);
 
 ?>
