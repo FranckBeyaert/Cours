@@ -1,0 +1,385 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>598,4280</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="608,4215" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="password" />
+      <Variable x:TypeArguments="x:String" Name="id" />
+      <Variable x:TypeArguments="x:String" Name="ref" />
+      <Variable x:TypeArguments="x:String" Name="identifiant" />
+      <Variable x:TypeArguments="x:String" Name="statut" />
+      <Variable x:TypeArguments="x:String" Name="civilite" />
+      <Variable x:TypeArguments="x:String" Name="nom" />
+      <Variable x:TypeArguments="x:String" Name="prenom" />
+      <Variable x:TypeArguments="x:String" Name="adresse" />
+      <Variable x:TypeArguments="x:String" Name="naissance" />
+      <Variable x:TypeArguments="x:String" Name="postal" />
+      <Variable x:TypeArguments="x:String" Name="ville" />
+      <Variable x:TypeArguments="x:String" Name="coordonnees" />
+      <Variable x:TypeArguments="x:String" Name="email" />
+      <Variable x:TypeArguments="x:String" Name="ligne" />
+      <Variable x:TypeArguments="x:String" Name="expected" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="546,122" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started task&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="546,566" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[id]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("id").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ref]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ref").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[identifiant]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("identifiant").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[password]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("password").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[statut]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("statut").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[civilite]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("civilite").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[nom]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("nom").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[prenom]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("prenom").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[adresse]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("adresse").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[naissance]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("naissance").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[postal]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("postal").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ville]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ville").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[coordonnees]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("coordonnees").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[email]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("email").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ligne]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("ligne").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[expected]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("expected").toString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Créer mon compte - Boulanger" sap:VirtualizedContainerService.HintSize="546,3102" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Faire" sap:VirtualizedContainerService.HintSize="512,2885" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="result" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Type" sap:VirtualizedContainerService.HintSize="450,1759" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Text="[password]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" CvElementArea="249, 626, 512, 55" CvTextArea="265, 645, 117, 18" CvTextArgument="Mot de passe*" CvType="InputBox" DesignTimeRectangle="251, 627, 510, 52" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT password'" FullSelectorArgument="&lt;webctrl id='password' tag='BL-PASSWORD-INPUT' /&gt;&lt;webctrl id='password' shadowhostid='password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='password' tag='BL-PASSWORD-INPUT' /&gt;&lt;webctrl id='password' shadowhostid='password' tag='INPUT' type='password' class='input   ' aaname='' /&gt;" Guid="c733bc0f-d46d-4558-9299-e65f6b5247ce" ImageBase64="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" InformativeScreenshot="0b81b0713fa3baedabeaf48473c83e60.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Identifiant*'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Text="[identifiant]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" CvElementArea="381, 544, 513, 54" CvTextArea="397, 563, 88, 15" CvTextArgument="Identifiant*" CvType="InputBox" DesignTimeRectangle="383, 546, 510, 50" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT identifier'" FullSelectorArgument="&lt;webctrl id='identifier' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='identifier' tag='INPUT' type='text' class='field__input' aaname='Identifiant*' /&gt;" Guid="d94e123c-cbf1-4fad-920a-cd47efc2bc24" ImageBase64="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" InformativeScreenshot="21b0eb5a65d8ef62d2fe6bedf9d9f70f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Identifiant*" CvType="Text" DesignTimeRectangle="393, 547, 488, 48" ElementType="Text" FriendlyName="'Identifiant*'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='field__label ' aaname='' check:innerText='Identifiant*' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAewAAAA0CAYAAABIMAuWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATdSURBVHhe7dz/SyJ5HMdx/4z9R2URFglZ8mA4Ms7gOvCHIegIYYN1We5ICmOD/CH7QRbhDM7AWGT7IvPDQAzxus98sdSs1K3Nz/F8wBtWZxxn+uXpjM6mrq6uxDAMwzDMYk/qe+qNGIZhGIZZ7EkJAAAsPIINAIAFCDYAABYg2AAAWIBgAwBgAYINAIAFCDYAABYg2AAAWIBgAwBgAYINAIAFCDYAABYg2AAAWIBgAwBgAYINAIAFCDYAABYg2AAAWIBgAwBgAYINAIAFngx2b8dROu2qmTx+THMjrbRTVS95/HP0VHXM+26M7mHvS0n5d+b5tJk/6vLNEbjm387Oz927gfDv+FrvDQCwn1XBnnpfvAMVwzhvNdX1PHXPvWTBC2q6Zt8cVccOvvNpXeXji2h5GGzvpCr3Q1NBshwAgGn8P4Pdq8oxwXan2enn8kCwg/OmKqW8nBVHxdWinLVtNc58gg0AmMl8wfY7qm04yryNLzlnlovaNmeRjQnB9k5qclezyoSXptMZZVfLapwP52pwqbqjzs7dZezMUiE+Mx1aJ7q8PTzRe41eEo8+NIytF4d77JJ44Km976qQy9yul1kuqXoyfDY+2HZDF8dlFZaSdd/lVTL76w+vk2zjbpK/WXCh5o6r4nJOefN3Wv9QN2f90QsBAJja7MG+aWs7Z4K0UlG7H4c36LdVWTExCwM+FGzfnHVm01mVDnsKbswTYSQ/Fsz2str8Ooh2EuO3GeX/bKh3bZ66CdT9O1wvr8pZvFZo8hn2hO+wJ55hjwX7W1XFX8uqn3rx2a55z95hyezv8Flysm1zXLnfq8nxBvKOwuNKq3Q09MFj4hl2oNaWo/Wdtrxj8+Fgt6fu/rpyv9U0+CgCAMA0Zg62tx+GtKBaP3liwK+rNBzsm5bK2bSyW61o8R1f9ZJZb7mibvQ4CfZqTaMnnu3o9cM/1HrWYE9y04jWKewOcppsO1tWK/zAccvTwdrYez5wSXzgYrfw+HsDAPCIGYOdhGrtYCyuoSAO8SDY/5Sjs9DNr9HCUeZsM4x+9Tx88FBI74f4JYId+J4uTltqHFblOvEl77t1Jmw7ce/7+ieCrWtffnj1AACAOcwY7IcDFhqJWBSwtDK5nHLvJ826Dl4z2Jd1ue/jQIf76Ky5qhzXxvblGYMNAMAPeOEz7Jwqp9HCR7xGsJPjWC6rNXIg4/tCsAEAi+HFv8POf+xEi0eMfB88fbC9L8VoXxojr58n2A+EuF9TYd5gRx9Q8vrrW/IYAIBnNHOw5/mVePQr6WjVQP5ZQ5u/ZOR86phHoemDrbOK8mZ77lF4WhzI64c3Vs0TbKm1lVV6ycR/cAyXd8eQ/9yNf9U+S7CvG9EHFid8rXkY9JNfnwMA8AxmD3Zo/D7sXEHlo8n3Yfv/Dt+HHd9f7e6bgN+eJc8QbCP8L0dzmWRbzrba1/MFW0FXtVL+3r3k3d1i/NxqeOvVDME2/Na2nNv7yEs6uEwWAADwg54MNgAAeH0EGwAACxBsAAAsQLABALAAwQYAwAIEGwAACxBsAAAsQLABALAAwQYAwAIEGwAACxBsAAAsQLABALAAwQYAwAIEGwAACxBsAAAsQLABALAAwQYAwAIEGwAAC6S+p96IYRiGYZjFntTe3p4YhmEYhlnk2dN/zkH8kIoWnPoAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT familyName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Text="[nom]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" CvElementArea="381, 566, 514, 56" CvTextArea="397, 586, 46, 15" CvTextArgument="Nom*" CvType="InputBox" DesignTimeRectangle="383, 568, 510, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT familyName'" FullSelectorArgument="&lt;webctrl id='familyName' tag='BL-INPUT' /&gt;&lt;webctrl id='familyName' shadowhostid='familyName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='familyName' tag='BL-INPUT' /&gt;&lt;webctrl id='familyName' shadowhostid='familyName' tag='INPUT' type='text' class='input   ' aaname='' /&gt;" Guid="df64e1f8-80db-47d1-8780-c9117b794131" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAgIAAAA4CAYAAACPO5AuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPiSURBVHhe7dzRS1tnGMDh/W+72C560f4xIkKRIsOUBmmKEdZBLkJBGB0V5i4czY1lXsiouwhlMAuzdKMELIQwhCLy7vuSY5q09qJgdMv3PPCB5xyT4937OycnfhEAQLGEAAAUbCoEHqw348bNW/HlV19blmVZljVnK8/4POsnjUMgH7i3thb9fr/aAwDMkzzj86yfjIFxCORKEAEAMN/yrM8z/9w4BPItAwBg/k3OfCEAAIURAgBQMCEAAAUTAgBQMCEAAAUTAgBQMCEAAAUTAgBQMCEAAAUTAgBQMCEAAAUTAgBQMCEAAAUTAgBQMCEAAAUTAgBQsJmEQO9pPRYWFmJhYy8G1b4p3XY6Xo9Or9q+Sr1O1OuduI5TA8B/zWxDIK3WryfV3gnXEQJ/bsfD7w/i7Vk32jkEBofRaW9F9111HAAKNMMQaERzI8XAYiv2P2yB6wiB07fR/akVtbVG1NfT31Zvxtbzv+LktDoOAAWaYQi0o9vrRGNxIZbbBzHVAheFQBrUB0+aUbs9upOwcLsWzSf5Cr46nlWv23mZruZbK7E0vOuwFCutThylEwxedqK1ujR6/dJKtJ4eTZz3NN52O9Fer8XKanrvb7di//WFH1wAQDFmGwL555/zz8ux+WLi0vvDEDjrRed+Gt53H0e3P/q90zcHsXk37bvfid55DAxfl4d8I7b/GKTRnn7veC9ayyk27qYBP/H6wW/tWM4fTTyv3u/F46h/14nDwUG083v+vRsPv2nG7vHwMAAUaeYhEGdHsb2ahvedx3E4NdDfh8DgWSNtN2K3P9oeyw/2pWHe/KW6cq9CoPFs+kr+8IfltL8W26+qHUMpLurpvI+Gf8V7x51oeFgQAIZmHwLZq+2opQFe+/FotD0VAoPYy88SXPgNg17s5LsCrf3h1f9HdxIqH51v6BMhcHYaJ/+M7hIAQOmuJgSS0VV7PXbepI2pgf6JgV3pPkrHzq/gLyMEAICxKwuBePd7bN5Jgzl/Pn+ddwQAgLGrC4HkpHqAr7mRnwl4P9A/7xkBIQAAl+VKQyClQOy30nBOw31qoI+/NbAZB8fVU/6f/NaAEACAy3LFIZCc7Edr8YMQyD7j/wgIAQC4HDMJAQDg/0EIAEDBhAAAFEwIAEDBhAAAFEwIAEDBhAAAFEwIAEDBhAAAFEwIAEDBhAAAFEwIAEDBhAAAFEwIAEDBhAAAFEwIAEDBhAAAFOzCELhx81b0+/1qCwCYR3nW55l/bhwCD9abcW9tTQwAwJzKMz7P+jzzz41DIMsHciXkWwaWZVmWZc3XyjN+MgKyqRAAAMoiBACgWBH/AvVStwvR5+PGAAAAAElFTkSuQmCC" InformativeScreenshot="e935e947537abf9d2afa60efbf4bd2fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT givenName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Text="[prenom]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" CvElementArea="381, 651, 513, 55" CvTextArea="397, 670, 71, 16" CvTextArgument="Prenom*" CvType="InputBox" DesignTimeRectangle="383, 653, 510, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT givenName'" FullSelectorArgument="&lt;webctrl id='givenName' tag='BL-INPUT' /&gt;&lt;webctrl id='givenName' shadowhostid='givenName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='givenName' tag='BL-INPUT' /&gt;&lt;webctrl id='givenName' shadowhostid='givenName' tag='INPUT' type='text' class='input   ' aaname='' /&gt;" Guid="c84ff7d1-2cd8-4539-af03-c8f738b30dfd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAgIAAAA4CAYAAACPO5AuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASmSURBVHhe7dzBa9tmHMbx/W87bIce2j9GFEMQwZR6VJgqxIPlEIYwJARBGPNlYFPIaA5m2Dn4YIgHS5l7yMHF6GAYJjx7X1l25STuHLZkst/vB34QvZZk5fR79OqVvxIAAHAWQQAAAIctBYG9/ZqePX+hr7/5lqIoiqKoLSvb422vz1sEAfvBm2pV4/E4GwEAANvE9njb6/NhYBEEbEogBAAAsN1sr7c9f24RBOyUAQAA2H75nk8QAADAMQQBAAAcRhAAAMBhBAEAABxGEAAAwGEEAQAAHEYQAADAYQQBAAAcRhAAAMBhBAEAABxGEAAAwGEEAQAAHEYQAADAYQQBAAAcRhAAAMBhGxMEJp1I5SBS+1M2AAAA/rVHCQLXzUCe592tnbLC+pkGSbbjusbnqr30FDavs4Fi69U9Rb1sAwCAAnvEIBDpdi+cjgdqvDWBYPdI/b+ywX801eA01MGvQ/NXkU3UPj5Q649J+v9HvalGnSNF7zYjvAAA3PSkQSD1oaGy56n2/qHTAsWX/NlWXK0ofFtTuB/MZj8+FTu+AADc9vRB4KaryASBIJ3mv1Yr8OTV27pqHqqyYx8h+Ir7WfNMBjqrh/JLs0cLpd1QcWeUmxmYH9/V6CJWuFtK9/N2KjpsXpl79GXJ72eK9nyV7D5eSf5epDNzB/9Z7nydWEF6PfZ8geKLkTQdqXuSu55qrG5+zUIyVPv0QOGrispBTVGzpxE5AABQYP/zjEDWeF96Kv/YnjXN6XTW6Cc9RbuefDN+nT5GmCq5bCg0+/rH/SwM5I7/oaXBOD2Bkk4k33zHYedzF5707Jg/e8RwYwamiQbNg3Qs6s3DwPL1pN97Y/b7yf4/FVW+K+eOH+oX+5jjdUPD9NiRWvsmMJigMmyGOuol6p8GKp/MrxUAgOJ50iBwd41A1nj9WH3bXHP6J/6945PfDtOm3Phot1Ydn+j8ezNez67gpq/YNwHCNOVlU/Xq5nt2Yw3S41ecLzlXzc4MHLaXZxlMuPC8QK1bywD6xywWBABshkcMAqZx3q47bw1kjTfqZttzg7Rxe+bO/47s0UL4bmQ2suPnDT/Hrtz3gpbZw7iM0zv/+DL9aNmFbeZlNT7YjVXn6+UeZ+SsCALTSaIJ0wAAgA3wpDMCd3258drgUH51fx28f0AQWNGwU9ctBea7Znfw/00QAABgUxQ0CMxmBMo/X2Xbq6wZBJ54RgAAgE1R0CCQrRF43dDVrTUCqcXYmkHgoWsECAIAAEcUNggs3hpYvA1gn70P1T2uqBSYgJAOrRkEjMVbA82BEtv0v/TWAEEAAOCI4gYBa3K19DsCXsm/f7HhGkHAWv93BAgCAAA3PEoQAAAAm4EgAACAwwgCAAA4jCAAAIDDCAIAADiMIAAAgMMIAgAAOIwgAACAwwgCAAA4jCAAAIDDCAIAADiMIAAAgMMIAgAAOIwgAACAwwgCAAA4jCAAAIDDCAIAADjs3iDw7PkLjcfjbAsAAGwj2+ttz59bBIG9/ZreVKuEAQAAtpTt8bbX254/twgClv3ApgQ7ZUBRFEVR1HaV7fH5EGAtBQEAAOAWggAAAM6S/ga1iUj7Csa0bAAAAABJRU5ErkJggg==" InformativeScreenshot="c21cf765bfe069f0016cb8bd7d77cb74.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT birthdate'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Text="[naissance]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" CvElementArea="382, 836, 514, 55" CvTextArea="397, 856, 147, 15" CvTextArgument="Date de naissance" CvType="InputBox" DesignTimeRectangle="383, 838, 510, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT birthdate'" FullSelectorArgument="&lt;webctrl id='birthdate' tag='BL-INPUT' /&gt;&lt;webctrl id='birthdate' shadowhostid='birthdate' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='birthdate' tag='BL-INPUT' /&gt;&lt;webctrl id='birthdate' shadowhostid='birthdate' tag='INPUT' type='text' class='input   ' aaname='' /&gt;" Guid="2c075e64-c8cd-4567-bc9a-86eef125e06a" ImageBase64="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" InformativeScreenshot="8cc9f133968095070081a78c79871934.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Statut* Particulier'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" DesignTimeRectangle="385, 556, 282, 76" DesignTimeScaleFactor="1" FriendlyName="'Statut* Particulier'" FullSelectorArgument="&lt;webctrl id='customerType' tag='BL-RADIO' /&gt;&lt;webctrl shadowhostid='customerType' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='customerType' tag='BL-RADIO' /&gt;&lt;webctrl shadowhostid='customerType' tag='DIV' type='' class='radio ' aaname='                   ' check:innerText='Statut*&amp;#xD;&amp;#xA;Particulier&amp;#xD;&amp;#xA;Professionnel' /&gt;" Guid="415bf1f7-383f-4116-ab10-d32db7f99796" ImageBase64="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" InformativeScreenshot="11039bca53b4ff28a8182d196dfeef48.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Civilité* Madame'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" DesignTimeRectangle="385, 662, 241, 76" DesignTimeScaleFactor="1" FriendlyName="'Civilité* Madame'" FullSelectorArgument="&lt;webctrl id='gender' tag='BL-RADIO' /&gt;&lt;webctrl shadowhostid='gender' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='gender' tag='BL-RADIO' /&gt;&lt;webctrl shadowhostid='gender' tag='DIV' type='' class='radio ' aaname='                   ' check:innerText='Civilité*&amp;#xD;&amp;#xA;Madame&amp;#xD;&amp;#xA;Monsieur' /&gt;" Guid="5fcb4bc1-2848-4c86-9501-7d5e34d352d5" ImageBase64="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" InformativeScreenshot="a61f6c3aac9b07ad6880834efe3480ff.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+            <uix:NGetText DisplayName="Get Text 'Indiquez un mot de passe'" sap:VirtualizedContainerService.HintSize="450,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="a5a8ba62-79ce-4f17-aa4a-a1041a6656cb" ScrapingMethod="Fulltext" TextString="[result]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.boulanger.com/account/signup" CvType="AnyWordGroup" DesignTimeRectangle="1158, 661, 144, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Indiquez un mot de passe'" FullSelectorArgument="&lt;webctrl id='password' tag='BL-PASSWORD-INPUT' /&gt;&lt;webctrl id='error-msg-password' shadowhostid='password' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='password' tag='BL-PASSWORD-INPUT' /&gt;&lt;webctrl id='error-msg-password' shadowhostid='password' tag='SPAN' type='' class='security-msg low' /&gt;" Guid="423c7f3e-3cd9-4045-a6d4-ce5a60d3920b" InformativeScreenshot="a2505da511001fce712aa095bda7349c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;BROWSER OUPUT =&gt; &quot; + result.ToString]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;EXPECTED =&gt;&quot; + expected]" />
+            <If Condition="[result.ToString=expected]" sap:VirtualizedContainerService.HintSize="450,516" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,334" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="result" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Got expected result" />
+                  <ui:WriteCell Cell="[&quot;P&quot;+ligne.toString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Data TU createAccount" Text="OK" WorkbookPath="C:\Users\Administrateur\Downloads\unit-test.xlsx" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Didnt get expected result" />
+                  <ui:WriteCell Cell="[&quot;P&quot;+ligne.toString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Data TU createAccount" Text="KO" WorkbookPath="C:\Users\Administrateur\Downloads\unit-test.xlsx" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 2576, 1416" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVDhPzZLPSxtBFMeXVMitFEUo7UFPBQ/+BXpRq9ZSsEVRoXqJkP4Fag4tpYdeBH/ebC+Ch0IIPSmIF0EPIvbgxvVHCqnWbW3d2GZRaja72fn2vZlMMH9B++DDwMx733nznWf8P2F2G9HddqP1KNaUsKdHZ83uyLzZZdxkjkgQrUS0XKaCNu4R79I9NW7u4wwulhew22FUYT4kuiQu5xL3dXEdkeSETLwZgZvD5c6qyI63l+kQ2bE2cRR7IMxHNTA7K0JJrmUBbsvnW45fPYEIfEAIiFJJEfIaIPh1JpzkpLCe3dEiPjHBAhYh2zx+3QuEIYrnJ3A3U4qNFC63V6gzRwr/XHojOL+MxQLFKgGK32uL1O4tKCJI0/r17SDCYgHe6SH2h+7qLorVAvQEugb59Q90GFFJBJ8dPG+E79gI8ucgP7SpXuUJ0sQXbKJDiafIJjph9dVK9gfqcfZ+TLAf158/weqv0x3sscAEwYaAvhFOakq+tXSVR+HEQuFLGp6dgfA9hN417Nn4TRPHWUB9I3dBB+zyj8WXVGjCv/iuyH3Dn4Mt2FMxpB9HuZjhmlo9C3KQCFepR2SbhyONiuEGWE9v63fzIC1wjSzWQRtRooXguZij5HkyrwIJ61HmnOpR/odhGH8B7l6y1v3eAfEAAAAASUVORK5CYII=" InformativeScreenshot="322f3cf6b1e3020c592be7cec5fc867c.jpg" Selector="&lt;html app='chrome.exe' title='Créer mon compte - Boulanger' /&gt;" Title="Créer mon compte - Boulanger" Url="https://www.boulanger.com/account/signup" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="546,122" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Task complete. Cleaning&quot;]" />
+  </Sequence>
+</Activity>
